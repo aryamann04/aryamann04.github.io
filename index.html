@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Updated CSS styles */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -73,24 +72,45 @@
             border-bottom: 2px solid #34495e;
             padding-bottom: 10px;
         }
-        #projects .project-container {
+        #skills .skills-container {
             display: flex;
-            overflow-x: scroll;
-            padding: 10px 0;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-        #projects .project {
-            min-width: 200px;
-            margin-right: 20px;
+        #skills .skill-section {
+            flex: 1;
         }
-        #projects .project img {
-            width: 100%;
+        #skills .skill-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        #skills .skill-section ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        #skills .skill-section ul li:after {
+            content: "\2666"; /* Diamond character */
+            margin-left: 10px;
+            color: #34495e;
+        }
+        #skills .skill-section ul li:last-child:after {
+            content: "";
+        }
+        .button {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
             border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-        #projects .project h3 {
-            margin: 10px 0 5px;
-        }
-        #projects .project p {
-            margin: 0;
+        .button:hover {
+            background-color: #e67e22;
         }
         #contact .contact-icons {
             display: flex;
@@ -115,23 +135,6 @@
             text-align: center;
             padding: 10px 0;
         }
-        .button {
-            display: inline-block;
-            background-color: #2c3e50;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #e67e22;
-        }
-        /* Additional styles for responsiveness */
         @media (max-width: 768px) {
             nav ul li {
                 display: block;
@@ -164,16 +167,39 @@
                 <a href="https://aryamann04.github.io/Nagpal,Aryaman Resume.pdf" download class="button">Download Resume</a>
             </div>
         </section>
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-container">
-                <div class="project">
-                    <a href="project1.html" class="button">Open Project 1</a>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-section">
+                    <h3>Computer Skills</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>C++</li>
+                        <li>SQL</li>
+                        <li>R</li>
+                    </ul>
                 </div>
-                <div class="project">
-                    <a href="project2.html" class="button">Open Project 2</a>
+                <div class="skill-section">
+                    <h3>Research Skills</h3>
+                    <ul>
+                        <li>Data Analysis</li>
+                        <li>Quantitative Research</li>
+                        <li>Statistical Modeling</li>
+                        <li>Mathematical Modeling</li>
+                        <li>Financial Analysis</li>
+                    </ul>
                 </div>
-                <!-- Add more projects as needed -->
+                <div class="skill-section">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Communication</li>
+                        <li>Team Collaboration</li>
+                        <li>Leadership</li>
+                        <li>Problem Solving</li>
+                        <li>Adaptability</li>
+                    </ul>
+                </div>
             </div>
         </section>
         <section id="contact">
@@ -181,21 +207,21 @@
             <div class="contact-icons" style="display: flex; flex-direction: column; align-items: center;">
                 <div style="font-size: 0.9em; margin-bottom: 10px;">
                        <a href="mailto:an3782@nyu.edu"><i class="fas fa-envelope"></i> Email: an3782@nyu.edu</a>
-</div>
-<div style="font-size: 0.9em;">
-   <a href="tel:+17323317128"><i class="fas fa-phone"></i> Phone: +1 732 331 7128</a>
-</div>
-<div style="font-size: 0.9em; margin-top: 20px;">
-   <a href="https://github.com/aryamann04" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-</div>
-<div style="font-size: 0.9em; margin-top: 10px;">
-   <a href="https://www.linkedin.com/in/aryaman-nagpal-28b070243/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-</div>
-</div>
-</section>
-</main>
-<footer>
-    <p>Aryaman Nagpal</p>
-</footer>
+                </div>
+                <div style="font-size: 0.9em;">
+                   <a href="tel:+17323317128"><i class="fas fa-phone"></i> Phone: +1 732 331 7128</a>
+                </div>
+                <div style="font-size: 0.9em; margin-top: 20px;">
+                   <a href="https://github.com/aryamann04" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+                <div style="font-size: 0.9em; margin-top: 10px;">
+                   <a href="https://www.linkedin.com/in/aryaman-nagpal-28b070243/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Aryaman Nagpal</p>
+    </footer>
 </body>
 </html>
