@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv='cache-control' content='no-cache'> 
-    <meta http-equiv='expires' content='0'> 
-    <meta http-equiv='pragma' content='no-cache'>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
     <title>Aryaman Nagpal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Updated CSS styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #f4f4f9;
+            background-color: #f9f9f9;
             color: #333;
         }
         header {
@@ -48,9 +53,10 @@
             color: white;
             text-decoration: none;
             font-size: 1.1em;
+            transition: color 0.3s;
         }
         nav ul li a:hover {
-            text-decoration: underline;
+            color: #e67e22;
         }
         main {
             max-width: 900px;
@@ -98,38 +104,42 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            transition: color 0.3s;
         }
         #contact .contact-icons a:hover {
-            color: #34495e;
+            color: #e67e22;
         }
         footer {
             background-color: #2c3e50;
             color: white;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
         }
         .button {
-    display: inline-block;
-    background-color: #2c3e50;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.button:hover {
-    background-color: #34495e;
-}
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #e67e22;
+        }
+        /* Additional styles for responsiveness */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -144,16 +154,16 @@
         </ul>
     </nav>
     <main>
-<section id="about" style="display: flex;">
-        <div class="about-image" style="flex: 0 0 auto; margin-right: 20px;">
-            <img src="aryamann04.github.io/AryamanNagpal.png" style="width: 150px; height: auto;">
-        </div>
-        <div class="about-text" style="flex: 1;">
-            <h2>About Me</h2>
-            <p>Hello! I'm Aryaman Nagpal, an ambitious undergraduate at New York University. Pursuing a double major in Economics & Mathematics (Honors) and Computer Science, I've cultivated strong analytical skills through hands-on experience in quantitative research and investment analysis. A adept communicator and collaborator, I thrive in diverse environments, having lived in the US, Singapore, India, China, and Japan.</p>
-            <a href="aryamann04.github.io/Nagpal,Aryaman Resume.pdf" download class="button">Download Resume</a>
-        </div>
-    </section>
+        <section id="about" style="display: flex; flex-wrap: wrap;">
+            <div class="about-image" style="flex: 0 0 auto; margin-right: 20px;">
+                <img src="aryamann04.github.io/AryamanNagpal.png" style="width: 150px; height: auto;">
+            </div>
+            <div class="about-text" style="flex: 1;">
+                <h2>About Me</h2>
+                <p>Hello! I'm Aryaman Nagpal, an ambitious undergraduate at New York University. Pursuing a double major in Economics & Mathematics (Honors) and Computer Science, I've cultivated strong analytical skills through hands-on experience in quantitative research and investment analysis. A adept communicator and collaborator, I thrive in diverse environments, having lived in the US, Singapore, India, China, and Japan.</p>
+                <a href="aryamann04.github.io/Nagpal,Aryaman Resume.pdf" download class="button">Download Resume</a>
+            </div>
+        </section>
         <section id="projects">
             <h2>Projects</h2>
             <div class="project-container">
@@ -166,26 +176,26 @@
                 <!-- Add more projects as needed -->
             </div>
         </section>
-<section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-icons" style="display: flex; flex-direction: column; align-items: center;">
-        <div style="font-size: 0.9em; margin-bottom: 10px;">
-            <a href="mailto:an3782@nyu.edu"><i class="fas fa-envelope"></i> Email: an3782@nyu.edu</a>
-        </div>
-        <div style="font-size: 0.9em;">
-            <a href="tel:+17323317128"><i class="fas fa-phone"></i> Phone: +1 732 331 7128</a>
-        </div>
-        <div style="font-size: 0.9em; margin-top: 20px;">
-            <a href="https://github.com/aryamann04" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-        <div style="font-size: 0.9em; margin-top: 10px;">
-            <a href="https://www.linkedin.com/in/aryaman-nagpal-28b070243/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        </div>
-    </div>
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-icons" style="display: flex; flex-direction: column; align-items: center;">
+                <div style="font-size: 0.9em; margin-bottom: 10px;">
+                       <a href="mailto:an3782@nyu.edu"><i class="fas fa-envelope"></i> Email: an3782@nyu.edu</a>
+</div>
+<div style="font-size: 0.9em;">
+   <a href="tel:+17323317128"><i class="fas fa-phone"></i> Phone: +1 732 331 7128</a>
+</div>
+<div style="font-size: 0.9em; margin-top: 20px;">
+   <a href="https://github.com/aryamann04" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+</div>
+<div style="font-size: 0.9em; margin-top: 10px;">
+   <a href="https://www.linkedin.com/in/aryaman-nagpal-28b070243/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+</div>
+</div>
 </section>
-    </main>
-    <footer>
-        <p>Aryaman Nagpal</p>
-    </footer>
+</main>
+<footer>
+    <p>Aryaman Nagpal</p>
+</footer>
 </body>
 </html>
