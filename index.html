@@ -13,67 +13,157 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-        header, nav, main, footer {
-            padding: 20px;
-            margin: 10px;
-            border: 1px solid #ccc;
+            background-color: #f4f4f9;
+            color: #333;
         }
         header {
-            background-color: #f8f8f8;
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
         }
         nav {
-            background-color: #e7e7e7;
+            background-color: #34495e;
+            padding: 10px 0;
         }
-        main {
-            background-color: #fff;
-        }
-        footer {
-            background-color: #f1f1f1;
-        }
-        ul {
+        nav ul {
             list-style-type: none;
             padding: 0;
+            text-align: center;
+            margin: 0;
         }
-        ul li {
+        nav ul li {
             display: inline;
-            margin-right: 10px;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        section h2 {
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 10px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Aryaman Nagpal</h1>
-        <p>Welcome to my website!</p>
+        <p>Economics & Mathematics Major | Quantitative Analyst | Aspiring Data Scientist</p>
     </header>
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#leadership">Leadership</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <main>
-        <section id="home">
-            <h2>Home</h2>
-            <p>This is the home section.</p>
-        </section>
         <section id="about">
-            <h2>About</h2>
-            <p>This is the about section.</p>
+            <h2>About Me</h2>
+            <p>Hello! I'm Aryaman Nagpal, currently pursuing a double major in Economics and Mathematics, and Computer Science at New York University. I am passionate about quantitative finance, data science, and developing innovative trading algorithms. My journey in the field has led me to gain valuable experience through internships and research roles where I've honed my skills in Python, quantitative modeling, and financial analysis. I thrive in dynamic environments and am always eager to tackle new challenges and contribute to impactful projects.</p>
         </section>
-        <section id="services">
-            <h2>Services</h2>
-            <p>This is the services section.</p>
+        <section id="education">
+            <h2>Education</h2>
+            <p><strong>New York University, College of Arts and Sciences</strong></p>
+            <p>B.A., Double Major in Economics & Mathematics (Honors), and Computer Science; GPA: 3.854</p>
+            <p>Dean’s List: 2022-23</p>
+            <p>Relevant Coursework: Financial Accounting, Microeconomic Analysis, Advanced Macroeconomics, Econometrics, Honors Calculus III, Honors Linear Algebra, Data Structures</p>
+        </section>
+        <section id="experience">
+            <h2>Experience</h2>
+            <p><strong>Quantitative Trading Analyst</strong>, NYU Mathematical Finance Group (Feb 2024 – Present)</p>
+            <ul>
+                <li>Developing quantitative algorithms for trading derivatives, currencies, and commodities</li>
+                <li>Analyzing implementations of pricing models for both vanilla securities and exotics such as barrier and digital options</li>
+            </ul>
+            <p><strong>Quantitative Research Intern</strong>, New England Investment Consulting Group (Jan 2024 – May 2024)</p>
+            <ul>
+                <li>Spearheading the proposal, refinement, and backtesting of a cointegrated pairs trading strategy</li>
+                <li>Implementing Python libraries (numPy, pandas, statsmodels, scikit-learn) to develop and optimize quantitative models</li>
+                <li>Designed an original indicator for pairs trading, optimizing trade timing for improved risk-adjusted performance</li>
+                <li>Created a dynamic backtesting framework delivering market-beating returns across equities and cryptocurrencies</li>
+            </ul>
+            <p><strong>Research Analyst Intern</strong>, OmniScience Capital (Jun 2023 – Aug 2023)</p>
+            <ul>
+                <li>Developed the first index tracking chemical companies in India by designing a backtesting model in Excel</li>
+                <li>Conducted in-depth market research for investment idea generation in emerging technological industries</li>
+                <li>Executed CAPM modeling for detailed portfolio analysis and employed risk metrics (Beta, VaR, cVaR) for benchmarking</li>
+            </ul>
+            <p><strong>Structured Credit Portfolio Intern</strong>, Astra Management (May 2021 – Oct 2021)</p>
+            <ul>
+                <li>Delivered 3 ad-hoc research reports, providing insights on the impact of COVID-19 on distressed fixed-income assets</li>
+                <li>Performed extensive historical analysis of past crises to formulate strategic recommendations for Additional Tier 1 bonds</li>
+            </ul>
+        </section>
+        <section id="leadership">
+            <h2>Leadership</h2>
+            <p><strong>Online AP Calculus AB/BC Instructor</strong>, The Princeton Review (Sep 2023 – Present)</p>
+            <ul>
+                <li>Instructing classes of 20-25 high school students, resulting in significant improvements in Advanced Placement exam scores</li>
+            </ul>
+            <p><strong>President and Treasurer</strong>, Habitat for Humanity, Singapore American School (Apr 2020 – May 2022)</p>
+            <ul>
+                <li>Led the process of fundraising from ideation to execution, raising over $4000 in one year</li>
+            </ul>
+            <p><strong>Captain</strong>, Varsity Cross Country, Singapore American School (Aug 2021 – May 2022)</p>
+            <ul>
+                <li>Achieved team gold in the Interscholastic Association of South-East Asian Schools (IASAS) competition in Manila</li>
+            </ul>
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <p>This is the contact section.</p>
+            <p>If you would like to get in touch, feel free to reach out through the following platforms:</p>
+            <p class="contact-info">
+                <a href="mailto:an3782@nyu.edu">Email: an3782@nyu.edu</a><br>
+                <a href="https://www.linkedin.com/in/aryaman-nagpal-28b070243/">LinkedIn: Aryaman Nagpal</a><br>
+                <a href="https://github.com/aryamann04/NEWEIGQuantInternship/tree/main">GitHub: Aryaman Nagpal</a>
+            </p>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        <p>&copy; 2024 Aryaman Nagpal. All rights reserved.</p>
     </footer>
 </body>
 </html>
