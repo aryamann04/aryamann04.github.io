@@ -137,7 +137,28 @@
         #contact .contact-icons a:hover {
             color: #e67e22;
         }
-        #certifications ul li a {
+        #certifications ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#certifications ul li {
+    position: relative;
+    padding-left: 25px; /* Adjust padding to fit the star icon */
+    margin-bottom: 10px;
+}
+
+#certifications ul li:before {
+    content: "\f005"; /* Font Awesome star icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #34495e; /* Star icon color */
+}
+
+#certifications ul li a {
     color: #333;
     text-decoration: none;
     transition: color 0.3s;
