@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>Cointegrated Equity Pairs Trading</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #e67e22;
+        }
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        section h2 {
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 10px;
+        }
+        .project-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+        .button:hover {
+            background-color: #e67e22;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aryaman Nagpal</h1>
+        <p>Cointegrated Equity Pairs Trading</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="https://aryamann04.github.io/#about">About Me</a></li>
+            <li><a href="https://aryamann04.github.io/projects/projects.html">Projects</a></li>
+            <li><a href="https://aryamann04.github.io/#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <p>This project, completed during my internship at New England Investment Consulting Group, focuses on implementing a cointegrated pairs trading strategy using historical data of S&P 500 constituents. The goal is to identify pairs of securities that exhibit a cointegrated relationship and use this relationship to generate profitable trading signals. The strategy leverages the mean-reverting nature of cointegrated pairs to execute long and short positions based on the divergence and convergence of their price movements.</p>
+            <p>The project tests the strategy using both the traditional z-score method as well as a novel indicator I created which factors in Relative Strength Index values. The key of this strategy is that it is market-neutral, signified by the market beta values close to 0, and in fact performs best during market downturns. With a low standard deviation and variance of returns, the strategy is best implemented with leverage in order to outperform the market with a strong risk-return profile.</p>
+            <p>As seen in the portfolio return shown below, the strategy greatly outperforms the market during downturns and, in general, is far more stable with less downside risk than investing in the market alone, making it the ideal candidate for a leveraged strategy. The below plot shows the <b>unleveraged</b> returns of the pairs trading strategy with various moving averages (lookback windows), transaction costs included.</p>
+            <div class="project-item">
+                <img src="https://github.com/aryamann04/cointegrated-pairs-trading/assets/140534650/294130a0-a2dd-4b72-b25c-6790b42a5ac1" alt="Pairs Trading Strategy Returns">
+            </div>
+        </section>
+
+        <section>
+            <h2>Repository Structure</h2>
+            <ul>
+                <li><b>InitialScreening.py:</b> Queries Wikipedia to find current S&P 500 index constituents and filters them by basic fundamental criteria such as market capitalization, trailing EPS, and P/E ratio to find stable, large companies.</li>
+                <li><b>PreselectionTests.py:</b> Tests and ranks all possible pairs of tickers returned by the initial screening by 7 criteria outlined by Brunetti & DeLuca (2023). These measures include the sum of squared deviations of log prices, the price ratio of log prices, correlation and covariances of the returns and log prices, and magnitude squared coherence.</li>
+                <li><b>CointegrationTests.py:</b> Runs an Engel-Granger test of cointegration of the securities starting with the first ranked security pair and moving down ranks. When a pair exhibits strong cointegration (p<0.03), the pair is appended to a list. The first 25 pairs which satisfy this criteria are then ranked by the variance of their price ratio. The 20 pairs with the highest variance are chosen to trade.</li>
+                <li><b>BuySellSignals.py:</b> Determines buy and sell signals via 2 methods. The classic method uses the 'extremeness' of the current price ratio of the two securities relative to a rolling mean. This is done by calculating a z-score, and if the z-score is above (below) a certain critical cutoff, then the ratio is deemed to be over (under) priced. For instance, if we have security A and security B, with a price ratio of p(A)/p(B), if the z-score is abnormally high, then we would sell A and buy B. If the z-score is abnormally low, then the ratio is cheap so we would buy A and sell B.</li>
+                <li><b>Indicator.py:</b> Creates a novel way (the second method) to trade pairs. In addition to the z-score of the price ratio between the two securities, the signed difference between the RSI (Relative Strength Index) values of the two securities is used as another way to determine the relative price of the securities. For instance, if A has an RSI of 90 and B has an RSI of 10, then the difference RSI(A) - RSI(B) would be 80 and would signify that the pair has a large difference in value. The indicator maps this information to the interval [0, 100] with 0 signifying a very cheap ratio and 100 an expensive ratio. Trading with this indicator improves the risk-return profile of the strategy significantly.</li>
+                <li><b>PerformanceMetrics.py:</b> Contains methods to calculate essential performance metrics of the portfolio including compounded annual growth rate, Sharpe ratio, standard deviation, variance, Value-at-Risk, conditional Value-at-Risk, and Beta.</li>
+                <li><b>Backtesting.py:</b> Contains methods to calculate profit and plot returns. The dynamic framework and the development of the data process allows various asset classes, including cryptocurrencies and commodities in addition to equities, to be backtested with this pairs trading algorithm.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Results</h2>
+            <h3>Z-Score Strategy (unleveraged)</h3>
+            <p>With a critical z-score of 1.1 and a look-back moving average window of 175 days, the strategy achieved a return of <b>7.63%</b>, a market beta of <b>0.00324</b>, and a Sharpe ratio of <b>0.490</b>. The daily 95% VaR and cVaR achieved are <b>-0.28%</b> and <b>-0.65%</b>.</p>
+            <h3>Indicator Strategy (unleveraged)</h3>
+            <p>With a lower bound of 40 and upper bound of 52 and a look-back moving average window of 150 days, the strategy achieved a return of <b>8.21%</b>, a market beta of <b>0.00306</b>, and a Sharpe ratio of <b>0.759</b>. The daily 95% VaR and cVaR achieved are <b>-0.27%</b> and <b>-0.61%</b>.</p>
+        </section>
+
+        <section>
+            <h2>View Reports</h2>
+            <p>January 2024:</p>
+            <a href="https://github.com/aryamann04/NEWEIGQuantInternship/files/14254910/Quant.Initial.Proposal.pdf" class="button">Initial Proposal</a>
+            <p>May 2024:</p>
+            <a href="https://github.com/aryamann04/NEWEIGQuantInternship/files/14887638/Week.7.Report.pptx.pdf" class="button">Latest Report</a>
+            <p>A special thank you to the Quantitative Research team at New England Investment Consulting Group for giving me guidance and advice through the development of this project.</p>
+        </section>
+    </main>
+    <footer>
+        <p>Aryaman Nagpal</p>
+    </footer>
+</body>
+</html>
