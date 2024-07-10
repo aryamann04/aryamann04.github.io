@@ -88,47 +88,25 @@
         .button:hover {
             background-color: #e67e22;
         }
-        #highlighted-projects {
-            position: relative;
-        }
-        .project-carousel {
+        .project-container {
             display: flex;
-            overflow: hidden;
+            justify-content: space-between;
+            gap: 10px;
             margin-bottom: 20px;
         }
         .project-item {
-            min-width: 100%;
-            transition: transform 0.5s ease-in-out;
+            flex: 1;
+            text-align: center;
         }
         .project-item img {
-            width: 80%;
+            width: 100%;
+            max-width: 200px;
             border-radius: 8px;
-            margin: 0 auto;
-            display: block;
+            margin-bottom: 10px;
         }
         .project-item p {
-            text-align: center;
             font-size: 1em;
-            margin: 10px 0 0;
-        }
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-        .carousel-nav button {
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            color: #2c3e50;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        .carousel-nav button:hover {
-            color: #e67e22;
+            margin: 0;
         }
         #skills .skills-container {
             display: flex;
@@ -190,34 +168,8 @@
                 text-align: center;
                 margin: 10px 0;
             }
-            .carousel-nav button {
-                font-size: 1.5em;
-            }
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const carousel = document.querySelector('.project-carousel');
-            const items = document.querySelectorAll('.project-item');
-            const totalItems = items.length;
-            let currentIndex = 0;
-
-            function showItem(index) {
-                const offset = -index * 100;
-                carousel.style.transform = 'translateX(' + offset + '%)';
-            }
-
-            document.querySelector('.prev').addEventListener('click', function() {
-                currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
-                showItem(currentIndex);
-            });
-
-            document.querySelector('.next').addEventListener('click', function() {
-                currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
-                showItem(currentIndex);
-            });
-        });
-    </script>
 </head>
 <body>
 <header>
@@ -234,7 +186,6 @@
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
-
 <main>
     <section id="about" style="display: flex; flex-wrap: wrap;">
         <div class="about-image" style="flex: 0 0 auto; margin-right: 20px;">
@@ -248,7 +199,7 @@
     </section>
     <section id="highlighted-projects">
         <h2>Highlighted Projects</h2>
-        <div class="project-carousel">
+        <div class="project-container">
             <div class="project-item">
                 <a href="https://aryamann04.github.io/projects/binomialpricingmodel/binomialpricingmodel.html">
                     <img src="https://aryamann04.github.io/projects/binomialpricingmodel/ironcondor.png" alt="Asset Pricing">
@@ -267,10 +218,6 @@
                     <p>Value Portfolios: Fama-French inspired value factor based portfolio construction and backtesting tool.</p>
                 </a>
             </div>
-        </div>
-        <div class="carousel-nav">
-            <button class="prev">&laquo;</button>
-            <button class="next">&raquo;</button>
         </div>
         <a href="https://aryamann04.github.io/projects/projects.html" class="button">See Projects</a>
     </section>
