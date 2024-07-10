@@ -88,6 +88,46 @@
         .button:hover {
             background-color: #e67e22;
         }
+        #highlighted-projects {
+            position: relative;
+        }
+        .project-carousel {
+            display: flex;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .project-item {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .project-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .project-item p {
+            text-align: center;
+            font-size: 1em;
+            margin: 10px 0 0;
+        }
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-nav button {
+            background: none;
+            border: none;
+            font-size: 2em;
+            color: #2c3e50;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .carousel-nav button:hover {
+            color: #e67e22;
+        }
         #skills .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -149,8 +189,34 @@
                 text-align: center;
                 margin: 10px 0;
             }
+            .carousel-nav button {
+                font-size: 1.5em;
+            }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.project-carousel');
+            const items = document.querySelectorAll('.project-item');
+            const totalItems = items.length;
+            let currentIndex = 0;
+
+            function showItem(index) {
+                const offset = -index * 100;
+                carousel.style.transform = 'translateX(' + offset + '%)';
+            }
+
+            document.querySelector('.prev').addEventListener('click', function() {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
+                showItem(currentIndex);
+            });
+
+            document.querySelector('.next').addEventListener('click', function() {
+                currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
+                showItem(currentIndex);
+            });
+        });
+    </script>
 </head>
 <body>
 <header>
@@ -160,61 +226,88 @@
         <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;New York City, NY
     </div>
 </header>
-    <nav>
-        <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="https://aryamann04.github.io/projects/projects.html">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="about" style="display: flex; flex-wrap: wrap;">
-            <div class="about-image" style="flex: 0 0 auto; margin-right: 20px;">
-                <img src="https://aryamann04.github.io/AryamanNagpal.png" style="width: 150px; height: auto;">
+<nav>
+    <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="https://aryamann04.github.io/projects/projects.html">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+<main>
+    <section id="about" style="display: flex; flex-wrap: wrap;">
+        <div class="about-image" style="flex: 0 0 auto; margin-right: 20px;">
+            <img src="https://aryamann04.github.io/AryamanNagpal.png" style="width: 150px; height: auto;">
+        </div>
+        <div class="about-text" style="flex: 1;">
+            <h2>About Me</h2>
+            <p>I'm Aryaman Nagpal, an honors undergraduate student at New York University (class of 2026), double majoring in Economics & Mathematics and Computer Science. I graduated high school from Singapore American School with Summa Cum Laude honors and as a National Merit Scholar. I've developed strong analytical skills through internships and hands-on experience in quantitative research and investment analysis. As an adept communicator and collaborator, I thrive in diverse environments, having lived in the US, Singapore, India, China, and Japan.</p>
+            <a href="https://aryamann04.github.io/Nagpal,Aryaman Resume.pdf" download class="button">Download Resume</a>
+        </div>
+    </section>
+    <section id="highlighted-projects">
+        <h2>Highlighted Projects</h2>
+        <div class="project-carousel">
+            <div class="project-item">
+                <a href="https://aryamann04.github.io/project1.html">
+                    <img src="https://aryamann04.github.io/project1.png" alt="Project 1">
+                    <p>Project 1: Description of the first project.</p>
+                </a>
             </div>
-            <div class="about-text" style="flex: 1;">
-                <h2>About Me</h2>
-                <p>I'm Aryaman Nagpal, an honors undergraduate student at New York University (class of 2026), double majoring in Economics & Mathematics and Computer Science. I graduated high school from Singapore American School with Summa Cum Laude honors and as a National Merit Scholar. I've developed strong analytical skills through internships and hands-on experience in quantitative research and investment analysis. As an adept communicator and collaborator, I thrive in diverse environments, having lived in the US, Singapore, India, China, and Japan.</p>
-                <a href="https://aryamann04.github.io/Nagpal,Aryaman Resume.pdf" download class="button">Download Resume</a>
+            <div class="project-item">
+                <a href="https://aryamann04.github.io/project2.html">
+                    <img src="https://aryamann04.github.io/project2.png" alt="Project 2">
+                    <p>Project 2: Description of the second project.</p>
+                </a>
             </div>
-        </section>
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <div class="skill-section">
-                    <h3>Computer Languages</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>R</li>
-                        <li>SQL</li>
-                        <li>C</li>
-                    </ul>
-                </div>
-                <div class="skill-section">
-                    <h3>Other Computer Skills</h3>
-                    <ul>
-                        <li>Microsoft Excel</li>
-                        <li>Bloomberg Terminal</li>
-                        <li>Capital IQ, CRSP/Compustat, LSEG</li>
-                        <li>Google Suite</li>
-                        <li>OverLeaf (LaTeX)</li>
-                    </ul>
-                </div>
-                <div class="skill-section">
-                    <h3>Soft Skills</h3>
-                    <ul>
-                        <li>Communication</li>
-                        <li>Team Collaboration</li>
-                        <li>Leadership</li>
-                        <li>Problem Solving</li>
-                        <li>Adaptability</li>
-                    </ul>
-                </div>
+            <div class="project-item">
+                <a href="https://aryamann04.github.io/project3.html">
+                    <img src="https://aryamann04.github.io/project3.png" alt="Project 3">
+                    <p>Project 3: Description of the third project.</p>
+                </a>
             </div>
-        </section>
-        <a href="https://aryamann04.github.io/projects/projects.html" class="button">Highlighted Projects</a>
-        <a href="https://aryamann04.github.io/certifications.html" class="button">Certifications & Professional Development</a>
+        </div>
+        <div class="carousel-nav">
+            <button class="prev">&laquo;</button>
+            <button class="next">&raquo;</button>
+        </div>
+    </section>
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-section">
+                <h3>Computer Languages</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>R</li>
+                    <li>SQL</li>
+                    <li>C</li>
+                </ul>
+            </div>
+            <div class="skill-section">
+                <h3>Other Computer Skills</h3>
+                <ul>
+                    <li>Microsoft Excel</li>
+                    <li>Bloomberg Terminal</li>
+                    <li>Capital IQ, CRSP/Compustat, LSEG</li>
+                    <li>Google Suite</li>
+                    <li>OverLeaf (LaTeX)</li>
+                </ul>
+            </div>
+            <div class="skill-section">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Communication</li>
+                    <li>Team Collaboration</li>
+                    <li>Leadership</li>
+                    <li>Problem Solving</li>
+                    <li>Adaptability</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <a href="https://aryamann04.github.io/projects/projects.html" class="button">Highlighted Projects</a>
+    <a href="https://aryamann04.github.io/certifications.html" class="button">Certifications & Professional Development</a>
     <section id="contact">
         <h2>Contact</h2>
         <div class="contact-icons">
@@ -229,9 +322,9 @@
             </div>
         </div>
     </section>
-    </main>
-    <footer>
-        <p>Aryaman Nagpal</p>
-    </footer>
+</main>
+<footer>
+    <p>Aryaman Nagpal</p>
+</footer>
 </body>
 </html>
