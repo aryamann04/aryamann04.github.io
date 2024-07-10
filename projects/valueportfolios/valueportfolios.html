@@ -1,1 +1,173 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>Value Portfolios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #e67e22;
+        }
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        section h2 {
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 10px;
+        }
+        .project-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+        .button:hover {
+            background-color: #e67e22;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Value Portfolios</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="https://aryamann04.github.io/#about">About Me</a></li>
+            <li><a href="https://aryamann04.github.io/projects/projects.html">Projects</a></li>
+            <li><a href="https://aryamann04.github.io/#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Value Portfolios</h2>
+            <p>This project (currently in progress) is a value factor-based portfolio construction tool I developed as an intern at OmniScience Capital that allows users to analyze stock portfolios based on 70+ different financial metrics and ratios. Users can rank consituent stocks of an index, sort them by quintiles or deciles based on the metric, perform backtesting, and visualize cumulative returns of these portfolios over time. The code allows for flexible start and end dates and can create value-based portfolios on the NASDAQ 100, S&P 500, and Russell Top 200 indices. The tool also provides detailed information about the tickers in each portfolio group, including their performance in the period and the distribution of the chosen metric within the portfolio. The data ranges from `2000-06-01` to `2024-06-01`. Historical index constituents, fundamental metrics and ratios, and price data was acquired from the Center of Research in Security Prices (CRSP) and Compustat databases via Wharton Research Data Services.</p>
+            <div>
+                <a href="https://github.com/aryamann04/value-portfolios" class="button">See Code</a>
+                <a href="https://aryamann04.github.io/projects/valueportfolios/Value_Portfolios_Report.pdf" download class="button">Download Report</a>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Features</h2>
+            <ul>
+                <li>Rank stocks based on a chosen financial metrics</li>
+                <li>Choose from the NASDAQ 100, S&P 500, and Russell Top 200</li>
+                <li>Perform backtesting on portfolios within a given date range</li>
+                <li>Visualize cumulative returns over time and other portfolio metrics</li>
+                <li>Detailed portfolio analysis including tickers, returns, and financial metrics</li>
+                <li>Perform univariate and multivariate linear regressions of returns on value factors</li>
+            </ul>
+            <p>See below the results of a 20-year backtest of equally-weighted, yearly-rebalanced portfolios by Price to Earnings on the NASDAQ 100.</p>
+            <div class="project-item">
+                <img src="https://github.com/aryamann04/fundamental-portfolios/assets/140534650/1d675bbc-cb0b-4c5d-802e-318d19c9e425" alt="Backtest Result">
+            </div>
+            <div class="project-item">
+                <img src="https://github.com/aryamann04/fundamental-portfolios/assets/140534650/725a44ab-5544-4585-b42f-fadc5ce43315" alt="Backtest Result">
+            </div>
+        </section>
+        <section>
+            <h2>Regressions</h2>
+                  <p>The file <code>regression.py</code> allows users to perform regressions of returns of index constituents on chosen value factors to determine which factors, and to what degree, play a role in forecasting stock returns. The below graph and table shows the result of regressing stock returns in the NASDAQ 100 in the past year on Net Profit Margin, demonstrating that Net Profit Margin is a statistically significant factor in determining the returns on NASDAQ 100 constituents in the past year. Actionable investment insights from the regression analyses coming soon.</p>
+            <div class="project-item">
+                <img src="https://github.com/aryamann04/fundamental-portfolios/assets/140534650/725a44ab-5544-4585-b42f-fadc5ce43315" alt="Backtest Result">
+            </div>
+        </section>
+        <section>
+            <h2>Available Metrics</h2>
+            <ul>
+            <p>The following are a few of the 70+ potential metrics you can choose from the construct the portfolios by.</p>
+                <li>Price to Earnings, Diluted & Excluding Extraordinary Items</li>
+                <li>Price to Book</li>
+                <li>Price to Cashflow</li>
+                <li>Return on Equity</li>
+                <li>Return on Assets</li>
+                <li>Return on Capital Employed</li>
+                <li>Free Cashflow to Operating Cashflow</li>
+                <li>Net Profit Margin</li>
+                <li>Operating Margin</li>
+                <li>Total Debt to EBITDA</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>Aryaman Nagpal</p>
+    </footer>
+</body>
+</html>
