@@ -136,7 +136,7 @@
         
         <section>
             <h2>Equity Options and Strategies</h2>
-            <p>The model supports pricing of call and put options, along with more complex strategies involving combinations of multiple options as well as exotics including digital (binary) call and put options, single-period range accruals, and Asian options. These strategies allow traders to hedge risks or speculate on price movements with limited risk.</p>
+            <p>The model supports pricing of call and put options, along with more complex strategies involving combinations of multiple options as well as exotics including digital (binary) call and put options, single-period range accruals, and Asian options. Some of the 25+ strategies include credit/debit call/put spreads, butterfly spreads, straddles and strangles, and iron condors. Pricing models include the discrete-time binomial model, the continuous-time Black-Scholes model, and Monte Carlo pricing.</p>
             <div class="project-item">
                 <img src="https://aryamann04.github.io/projects/binomialpricingmodel/ironcondor.png" style="display: inline-block; width: 48%;">
                 <img src="https://aryamann04.github.io/projects/binomialpricingmodel/rangeaccrual.png" style="display: inline-block; width: 48%;">
@@ -147,7 +147,7 @@
         </section>
         <section>
             <h2>Zero-Coupon Bonds (ZCBs)</h2>
-            <p>Zero-coupon bonds are debt securities that do not pay periodic interest. Instead, they are issued at a discount to their face value and mature at par. The <code>ZeroCouponBond</code> class calculates the price of such bonds using a binomial interest rate tree.</p>
+            <p>Zero-coupon bonds are debt securities that do not pay periodic interest. Instead, they are issued at a discount to their face value and mature at par. The <code>ZeroCouponBond</code> class calculates the price of such bonds using a binomial interest rate tree, and using the potential paths of the interest rates to determine the arbitrage-free (risk-netural) price of the zero coupon bond.</p>
             <div class="project-item">
                 <img src="https://aryamann04.github.io/projects/binomialpricingmodel/ZCBtree.png" style="display: inline-block; width: 48%;">
             </div>
@@ -159,7 +159,7 @@
 
         <section>
             <h2>Interest Rate Derivatives: Caplets and Floorlets</h2>
-            <p>Caplets and floorlets are options on interest rates. A caplet provides a payoff when the interest rate exceeds a specified strike rate, while a floorlet provides a payoff when the interest rate falls below a specified strike rate. The <code>Caplet</code> and <code>Floorlet</code> classes calculate their respective prices using binomial interest rate trees.</p>
+            <p>Caplets and floorlets are essentially options on interest rates. A caplet provides a payoff, settles in arrears, when the interest rate exceeds a specified strike rate, while a floorlet provides a payoff when the interest rate falls below a specified strike rate. The <code>Caplet</code> and <code>Floorlet</code> classes calculate their respective prices using binomial interest rate trees.</p>
             <div class="project-item">
                 <img src="https://aryamann04.github.io/projects/binomialpricingmodel/capletsfloorlets.png">
             </div>
